@@ -1,0 +1,11 @@
+# Ignore the actual data
+*.jpg
+*.png
+*.mp4
+dataset/
+__pycache__/
+*.pyc
+.env
+.venv
+venv/
+.DS_Store
