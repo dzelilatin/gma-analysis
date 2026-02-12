@@ -1,8 +1,11 @@
 # Ignore the actual data
+*.h5
 *.jpg
 *.png
 *.mp4
 dataset/
+test/
+node_modules/
 __pycache__/
 *.pyc
 .env
