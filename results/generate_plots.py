@@ -37,7 +37,6 @@ def plot_inference():
 # --- PLOT 2: TRAINING CURVES ---
 def plot_history():
     try:
-        # Download history_full.csv from HPC first if you don't have it!
         df = pd.read_csv('results/history_full.csv')
         plt.figure(figsize=(12, 5))
         

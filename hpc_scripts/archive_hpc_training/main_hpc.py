@@ -15,19 +15,19 @@ from sklearn.metrics import confusion_matrix, classification_report
 # ==========================================
 # 1. POSTAVKE
 # ==========================================
-MODE = 'TEST'  # <--- PROMIJENI U 'FULL' KAD SI SPREMNA
+MODE = 'TEST'  
 
-# Apsolutne putanje na osnovu onoga sto si rekla
-BASE_DIR = os.getcwd() # Ovo je tvoj home folder (/home/dzelila)
+# Apsolutne putanje
+BASE_DIR = os.getcwd() # home folder
 PROJECT_DIR = os.path.join(BASE_DIR, "trueaid")
 
 # Ovdje koristimo 'data' folder jer on ima 'Training slike' i 'Validacija'
-# Pazi na velika/mala slova!
+# Pazi na velika/mala slova
 TRAIN_DIR = os.path.join(PROJECT_DIR, "data", "Training slike")
 VAL_DIR = os.path.join(PROJECT_DIR, "data", "Validacija") 
 # (Ako se folder zove "Validacija2" ili samo "Validacija", provjeri sa 'ls')
 
-SAVE_PATH = BASE_DIR # Rezultate cuvamo vani da ih lakse nadjes
+SAVE_PATH = BASE_DIR 
 
 IMG_HEIGHT, IMG_WIDTH = 512, 512
 BATCH_SIZE = 16
@@ -106,14 +106,14 @@ model = Sequential([
     Conv2D(32, (3, 3), activation='relu'),
     MaxPooling2D(2, 2),
     Flatten(),
-    Dense(128, activation='relu'), # Smanjio sam malo Dense sloj za brzi test
+    Dense(128, activation='relu'), 
     Dropout(0.5),
     Dense(NUM_CLASSES, activation='softmax')
 ])
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# Rucne tezine (kako si trazila)
+
 manual_class_weights = {0: 1.5, 1: 1.0, 2: 1.0, 3: 1.0}
 class_weights_dict = {cls: manual_class_weights.get(cls, 1.0) for cls in np.unique(train_generator.classes)}
 

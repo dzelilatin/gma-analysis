@@ -21,8 +21,6 @@ from sklearn.metrics import confusion_matrix, classification_report
 # ==========================================
 # Kod traži podatke u istom folderu gdje se nalazi
 BASE_DIR = os.getcwd() 
-# Prilagodi ove nazive ako mentorica koristi druge, ali ovo je standard
-# Ocekujemo strukturu: TvojFolder -> dataset -> Training slike
 DATA_DIR = os.path.join(BASE_DIR, "dataset", "Training slike")
 VAL_DIR = os.path.join(BASE_DIR, "dataset", "Validacija2")
 

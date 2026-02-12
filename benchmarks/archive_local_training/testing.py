@@ -81,7 +81,7 @@ train_generator = datagen.flow_from_directory(
     subset='training'
 )
 
-# Za validaciju koristimo tvoj folder Validacija2
+# Za validaciju koristimo folder Validacija2
 val_generator = datagen.flow_from_directory(
     test_images_dir, 
     target_size=(img_height, img_width),
