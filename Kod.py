@@ -15,9 +15,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.image as mpimg
-import keras
 import tensorflow as tf
-from google.colab import drive
+from tensorflow import keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras import layers, models
@@ -28,10 +27,9 @@ from sklearn.utils.class_weight import compute_sample_weight
 from sklearn.utils import class_weight
 
 #Ucitavanje slika
-drive.mount('/content/drive')
-data_dir=r'/content/drive/MyDrive/DOKTORAT IBU/Thesis/DATA/Training slike'
+data_dir = r'/Users/user/Desktop/gma-analysis/dataset/data/Training slike'
 img_height, img_width = 512,512
-batch_size = 16
+batch_size = 4
 first_level_classes = ['Face', 'Hand to face', 'Legs', 'Thumb']
 num_classes=len(first_level_classes)
 
@@ -98,9 +96,9 @@ history1 = model.fit(train_generator,
                      class_weight=class_weights_dict,
                      callbacks=[lr_scheduler],
                      epochs=30)
-model.save(r'/content/drive/MyDrive/DOKTORAT IBU/Thesis/novimodel2803.h5')
+model.save(r'/Users/user/Desktop/gma-analysis/models/new_model.h5')
 history_df = pd.DataFrame(history1.history)
-history_df.to_csv(r'/content/drive/MyDrive/DOKTORAT IBU/Thesis/novimodel2803.csv')
+history_df.to_csv(r'/Users/user/Desktop/gma-analysis/models/new_model.csv')
 
 
 #Plot trening historije
@@ -143,8 +141,8 @@ plt.show()
 #Subsequent validacija
 
 #Ucitavanje slika i modela
-model = load_model(r'/content/drive/MyDrive/DOKTORAT IBU/Thesis/novimodel2803.h5')
-test_images_dir = r'/content/drive/MyDrive/DOKTORAT IBU/Thesis/DATA/Validacija2'
+model = load_model(r'/Users/user/Desktop/gma-analysis/models/new_model.h5')
+test_images_dir = r'/Users/user/Desktop/gma-analysis/dataset/data/Validacija2'
 
 processed_images = []
 true_labels = []
@@ -225,5 +223,8 @@ for i, class_name in enumerate(class_names):
     print(f'MCC: {mcc[i]:.2f}')
     print('-' * 20)
 
-class_report = classification_report(true_labels, predicted_labels, target_names=class_names)
+label_encoder = LabelEncoder()
+true_labels_encoded = label_encoder.fit_transform(true_labels)
+
+class_report = classification_report(true_labels_encoded, predicted_labels, target_names=class_names)
 print(class_report)
