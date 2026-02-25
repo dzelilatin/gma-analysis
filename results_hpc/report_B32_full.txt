@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+        Face       0.75      1.00      0.85       129
+Hand to face       0.85      0.67      0.75       123
+        Legs       0.79      0.89      0.84       134
+       Thumb       0.88      0.66      0.76       149
+
+    accuracy                           0.80       535
+   macro avg       0.81      0.81      0.80       535
+weighted avg       0.82      0.80      0.80       535

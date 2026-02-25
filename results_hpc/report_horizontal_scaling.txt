@@ -1,0 +1,26 @@
+HORIZONTAL SCALING REPORT (3 NODES)
+==============================
+Class: Face
+Sensitivity: 0.64
+Specificity: 0.93
+F1 Score: 0.68
+MCC: 0.59
+--------------------
+Class: Hand to face
+Sensitivity: 0.67
+Specificity: 0.84
+F1 Score: 0.61
+MCC: 0.48
+--------------------
+Class: Legs
+Sensitivity: 0.87
+Specificity: 0.94
+F1 Score: 0.84
+MCC: 0.79
+--------------------
+Class: Thumb
+Sensitivity: 0.70
+Specificity: 0.93
+F1 Score: 0.74
+MCC: 0.65
+--------------------
